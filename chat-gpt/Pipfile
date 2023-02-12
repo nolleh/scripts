@@ -9,6 +9,7 @@ python-dotenv = "*"
 termcolor = "*"
 tabulate = "*"
 pandas = "*"
+cython = "*"
 
 [dev-packages]
 

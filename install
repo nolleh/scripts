@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mkdir -p ~/.config/scripts
+cp -r chat-gpt ~/.config/scripts/chat-gpt
+

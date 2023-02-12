@@ -2,4 +2,5 @@
 
 mkdir -p ~/.config/scripts/bin
 cp chat-gpt/dist/chat-gpt ~/.config/scripts/bin/
+cp chat-gpt/.env ~/
 

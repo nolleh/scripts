@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir -p ~/.config/scripts
-cp -r chat-gpt ~/.config/scripts/chat-gpt
+mkdir -p ~/.config/scripts/bin
+cp chat-gpt/dist/chat-gpt ~/.config/scripts/bin/
 

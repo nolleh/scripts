@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "build cgpt"
+
 rm -rf dist/*
 
 mkdir -p dist

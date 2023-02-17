@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-echo "build cgpt"
-
 ./gen
 
-cp dist/cgpt ~/.config/scripts/bin/
+# cp dist/cgpt ~/.config/scripts/bin/
+
+ln -sf $(pwd)/dist/cgpt ~/.config/scripts/bin/
 cp .env ~/
 

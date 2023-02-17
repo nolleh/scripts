@@ -55,5 +55,5 @@ def get_arguments():
 
 if __name__ == "__main__":
     q = get_arguments()
-    q = "".join(q)
-    main(q)
+    nq = " ".join(q)
+    main(nq)

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
 mkdir -p ~/.config/scripts/bin
-cp chat-gpt/dist/chat-gpt ~/.config/scripts/bin/
-cp chat-gpt/.env ~/
 
+cd chat-gpt && ./install

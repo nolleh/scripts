@@ -20,22 +20,34 @@ def main(q: str):
         else:
             statement = input()
         message = ""
+        max_token = 1000
         while statement != "q":
             if statement == "c":
-                statement = "please continue"
+                statement = "please continue, the last context was" + message
+                max_token = min(max_token + 1000, 4000)
+            elif statement.find('{ctx}'):
+                statement = statement.replace('{ctx}', message)
+                message = ""
+                max_token = min(max_token + 1000, 4000)
             elif len(message) > 0:
                 print(colored(message, "light_magenta"))
                 print("=====================")
                 message = ""
+                max_token = 1000
+            
             print(colored(statement, "cyan"))
             response = openai.Completion.create(
                 model="text-davinci-003",
-                prompt=statement,
+                prompt=statement[:4090],
                 temperature=0.6,
-                max_tokens=100,
+                max_tokens=max_token,
             )
             print(colored(response.choices[0].text, "green"))
-            print("press (c): read more, (q): quit")
+            print(
+                "press (c): read more, \n"
+                "put {ctx} if you want to pass current context \n"
+                "(q): quit"
+            )
             statement = input()
             message += response.choices[0].text
         print(colored(message, "light_magenta"))

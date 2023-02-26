@@ -25,8 +25,8 @@ def main(q: str):
             if statement == "c":
                 statement = "please continue, the last context was" + message
                 max_token = min(max_token + 1000, 4000)
-            elif statement.find('{ctx}'):
-                statement = statement.replace('{ctx}', message)
+            elif statement.find("{ctx}"):
+                statement = statement.replace("{ctx}", message)
                 message = ""
                 max_token = min(max_token + 1000, 4000)
             elif len(message) > 0:
@@ -34,7 +34,7 @@ def main(q: str):
                 print("=====================")
                 message = ""
                 max_token = 1000
-            
+
             print(colored(statement, "cyan"))
             response = openai.Completion.create(
                 model="text-davinci-003",

@@ -1,5 +1,5 @@
 # scripts
-scripts for dev environment 
+scripts for dev environment
 
 
 ## dependency

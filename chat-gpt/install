@@ -2,8 +2,9 @@
 
 ./gen
 
-# cp dist/cgpt ~/.config/scripts/bin/
 
-ln -sf $(pwd)/dist/cgpt ~/.config/scripts/bin/
-cp .env ~/
+INSTALL_PATH="$HOME"/.config/scripts/bin/
+
+ln -sf "$(pwd)"/dist/cgpt "$INSTALL_PATH"
+cp .env "$INSTALL_PATH"
 

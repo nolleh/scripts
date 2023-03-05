@@ -3,4 +3,4 @@
 echo "install scripts"
 mkdir -p ~/.config/scripts/bin
 
-cd chat-gpt && ./install
+cd chat-gpt && ./install && cd ..

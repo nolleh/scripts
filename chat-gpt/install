@@ -6,5 +6,9 @@
 INSTALL_PATH="$HOME"/.config/scripts/bin/
 
 ln -sf "$(pwd)"/dist/cgpt "$INSTALL_PATH"
-cp .env "$INSTALL_PATH"
+
+#shellcheck disable=SC2002
+ENV_FILE_GREP=$(cat "$HOME"/.env | grep OPENAI_API_KEY)
+
+[ -z "$OPENAI_API_KEY" ] && [ -z "$ENV_FILE_GREP" ] && cat .env >> "$HOME"/.env  
 

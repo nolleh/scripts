@@ -36,20 +36,28 @@ def main(q: str):
                 max_token = 1000
 
             print(colored(statement, "cyan"))
-            response = openai.Completion.create(
+            for response in openai.Completion.create(
                 model="text-davinci-003",
                 prompt=statement[:4090],
                 temperature=0.6,
                 max_tokens=max_token,
-            )
-            print(colored(response.choices[0].text, "green"))
+                stream=True,
+            ):
+                # print(response.choices[0].text.strip().replace("\n", ""), end= " ")
+                print(
+                    colored(response.choices[0].text, "green"),
+                    end="",
+                    flush=True,
+                )
+                message += response.choices[0].text
+            print()
             print(
                 "press (c): read more, \n"
                 "put {ctx} if you want to pass current context \n"
                 "(q): quit"
             )
             statement = input()
-            message += response.choices[0].text
+            # message += response.choices[0].text
         print(colored(message, "light_magenta"))
     except Exception as e:
         print(colored(f"fail: {e}", "red"))

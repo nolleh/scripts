@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
+CYTHONE=$(which cython)
+if [[ "$CYTHONE" == *"not found"* ]]; then
+  echo "not buildable environment. make sure install cython"
+  exit 0
+fi
+
 echo "build cgpt"
 
 rm -rf dist/*
 
 mkdir -p dist
 cd dist
+
 
 [ -z "$VIRTUAL_ENV" ] && PYTHON_PATH=python3 || PYTHON_PATH="$VIRTUAL_ENV"/bin/python
 cython ../q.py -o ./q.c --embed

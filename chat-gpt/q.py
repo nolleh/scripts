@@ -12,7 +12,6 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 print(colored("Question> ", "cyan"))
 
-
 def main(q: str):
     try:
         if len(q) > 0:

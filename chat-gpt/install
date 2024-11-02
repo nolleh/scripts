@@ -4,6 +4,7 @@
 
 
 INSTALL_PATH="$HOME"/.config/scripts/bin/
+mkdir -p "$INSTALL_PATH"
 
 ln -sf "$(pwd)"/dist/cgpt "$INSTALL_PATH"
 
